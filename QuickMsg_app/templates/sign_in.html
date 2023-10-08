@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block sayfaBaslik %}
+LOGIN
+{% endblock sayfaBaslik %}
+
+{% block sayfaIcerik %}
+<div class="container">
+
+  {% for message in messages %}
+    <p id="error-message">{{message}}</p>
+    {% endfor %}
+
+
+  <h2 id="logIn-title">LOGIN</h2>
+  <hr id="login-hr">
+
+   <!-- login formu -->
+  <form action="{% url 'loginpage' %}" method="post">
+    {% csrf_token %}
+
+    <div id="login-borders">
+      <div class="logInput1">
+        <input type="text" placeholder="Username" name="username" required>
+      </div>
+
+      <div class="logInput2">
+        <input type="password" placeholder="Password" name="password" required>
+        <p>Hesabiniz Yok Mu? buradan <a href="{% url 'signupPage' %}">kayit olabilirsiniz!</a> </p>
+      </div>
+
+      <div class="loginBtn">
+        <button type="submit">Log in</button>
+
+      </div>
+
+    </div>
+
+  </form>
+
+ 
+</div> 
+
+<script>
+    setTimeout()
+</script>
+
+<script src="{% static 'scripts/handleMessages.js' %}"></script>
+{% endblock sayfaIcerik %}

@@ -1,0 +1,38 @@
+<div class="nav-container">
+    <nav class="navbar">
+        <ul>
+            <li> <a href="{% url 'homepage' %}">HomePage</a> </li>
+            <li> <a href="{% url 'usertweet' user.id %}">My Tweets</a> </li>
+            
+        </ul>  
+          {% if request.user.is_authenticated %} 
+          <div class="dropdown">
+            
+            <span id="button"><a href="{% url 'userprofile' request.user.id %}">MyProfile</a></span>
+            <div class="dropdown-options">
+              <a href="{% url 'usertweet' user.id %}">MyTweets</a>
+              {% if request.user.is_authenticated and request.user.is_superuser %}
+              <a href="/admin/" target="_blank">Admin Paneli</a>
+              {% endif %}
+              <a href="{% url 'profilesettings' %}">Profile Settings</a>
+              <a id="logoutBTN"href="{% url 'logoutpage' %}">Logout <i class="fa-solid fa-right-to-bracket"></i></a>
+            </div>
+            
+          </div>
+         
+          {% else %}
+        <div class="rigth-menu">
+            <ul>
+           <li> <a  href="{% url 'loginpage' %}">SignIn</a></li>
+           <li>
+            <i class="fa-solid fa-hand-holding-heart" style="color: #ffffff;"></i>
+           </li>
+            <li> <a href="{% url 'signupPage' %}">SignUp</a> </li>
+           </ul>
+          </div>
+         {% endif %}     
+        
+
+
+    </nav>
+</div>

@@ -1,0 +1,56 @@
+/* update_tweet css baslangic */
+.updatetweet-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 73%;
+    height: 9%;
+    margin-left: 12%;
+    padding-top: 40px;
+}
+
+.updatetweet-content {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 60%;
+    height: 107px;
+    background-color: rgba(255, 255, 255, 0.888);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 3px 8px 3px rgb(63, 62, 62);
+}
+
+.updatetweet-content p {
+    width: 50%;
+    padding-top: 8px;
+    padding-left: 5px;
+    text-align: center;
+}
+
+#updatetweet-date {
+    text-align: right;
+}
+
+#updatetweet-post {
+    padding-bottom: 20px;
+}
+
+.update-form {
+    margin-left: 64%;
+    margin-top: -12%;
+    background-color: rgb(35, 55, 105);
+    border-radius: 5px;
+    color: white;
+}
+
+.update-form textarea {
+    width: 85%;
+    height: 50px;
+    border-radius: 5px;
+    border-color: rgb(35, 55, 105);
+    background-color: white;
+    margin-top: 7%;
+    padding-left: 7px;
+    padding-top: 8px;
+    overflow: hidden;
+    resize: none;
+}

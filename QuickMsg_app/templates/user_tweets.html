@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sayfaBaslik %}
+User Tweets
+{% endblock sayfaBaslik %}
+
+{% block sayfaIcerik %}
+ <div class="container">
+
+  {% for message in messages %}
+  <p id="success-message">{{message}}</p>
+  {% endfor %}
+  
+  <div class="mytweet-title">
+    {% if request.user == user%}
+    <h2>MyTweets</h2>
+    <hr>
+    {% else %}
+    <h2>{{user.username}} adli kullanicinin Tweetleri</h2>
+    <hr>
+    {% endif %}
+  </div>
+  
+  <!-- Kullanıcının kendi ve tikladigi id'nin bütün tweetleri -->
+  {% for posts in post %}
+  <div class="mytweet-container">
+    <div class="usertweet-content">
+      <div class="usertweet-image">
+        <img src="{{user.handleAvatar}}" alt="{{user.username}}">
+      </div>
+      <p id="usertweet-username">@{{posts.user}}</p>
+      <p id="usertweet-post">{{posts.post}}</p>
+      <p id="usertweet-date">({{posts.createdAt}})</p>
+       
+      <!-- tweet işlev iconları -->
+      {% if request.user.id == posts.user.id or request.user.is_superuser or request.user.is_moderator %}
+      <p> <a href="{% url 'delete_tweet' posts.id %}"><i class="fa-solid fa-trash-can" style="color: #121212;"></i> </a> </p>
+      <p> <a href="{% url 'update_tweet' posts.id %}"><i class="fa-regular fa-pen-to-square"style="color: #121212;"></i> </a> </p>
+      {% endif %}
+
+      {% if request.user.isApproved %}
+      <p> <a href="{% url 'create_comment' posts.id %}"><i class="fa-solid fa-reply" style="color: #0f0f10;"></i> </a> </p>
+      {% endif %}
+
+    </div>
+  </div>
+
+  {% endfor %}
+
+  <!-- user tweetlerinin sağ tarafındaki profil alanı -->
+  {% if request.user.isApproved or request.user.is_superuser or request.user.is_moderator %}
+  <div class="user-profile">
+    <div class="profile-image">
+      <img src="{{user.handleAvatar}}" alt="{{user.username}}">
+    </div>
+    <p>@{{user.username}}</p>  
+    
+    
+    <div class="iconlar">
+    <p> <a href="#"> <i class="fa-brands fa-instagram" ></i> </a> </p>
+    <p> <a href="#"> <i class="fa-brands fa-github"></i> </a> </p>
+    <p> <a href="#"> <i class="fa-brands fa-discord"></i> </a> </p>
+    <p> <a href="#"> <i class="fa-brands fa-line"></i> </a> </p> 
+    </div>
+   
+    <p>{{user.aboutme}}</p>
+
+  
+
+    {% if request.user.is_superuser or request.user.is_moderator %}
+    
+    {% if isBanned %}
+    <span> <a style="text-decoration: none; color:black;" href="{% url 'remove_ban' user.id %}"><i style="color:black; font-size: 18px; margin-top: 38%; margin-left: 70%;" class="fa-solid fa-ban"></i>RemoveBan</a> </span>
+    {% else %}
+    <span> <a style="text-decoration: none; color:black;" href="{% url 'ban_user' user.id %}"><i style="color:black; font-size: 18px; margin-top: 44%; margin-left: 70%;" class="fa-solid fa-ban"></i>Ban</a> </span>   
+    {% endif %}
+
+    {% endif %}
+    
+  </div>
+  {% endif %}
+
+
+ </div>
+
+ <script>
+  setTimeout()
+ </script>
+
+ <script src="{% static 'scripts/handleMessages.js' %}"></script>
+{% endblock sayfaIcerik %}

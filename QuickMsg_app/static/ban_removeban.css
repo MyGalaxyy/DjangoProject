@@ -1,0 +1,57 @@
+/* ban_user form css */
+.banform label {
+    margin-left: 2%;
+    color: white;
+}
+
+.banform {
+    width: 38%;
+    height: 120px;
+    margin-top: 4%;
+    margin-left: 10%;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(35, 55, 105);
+}
+
+#id_banReason {
+    width: 80%;
+    height: 70px;
+    border-radius: 5px;
+    border-color: rgb(35, 55, 105);
+    background-color: white;
+    margin-top: 4%;
+    padding-left: 8px;
+    padding-top: 8px;
+    overflow: hidden;
+    resize: none;
+}
+
+/* remove_ban form css */
+.removebanform label {
+    margin-left: 2%;
+    color: white;
+}
+
+.removebanform {
+    width: 38%;
+    height: 120px;
+    margin-top: 4%;
+    margin-left: 10%;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(35, 55, 105);
+}
+
+#id_removebanReason {
+    width: 80%;
+    height: 70px;
+    border-radius: 5px;
+    border-color: rgb(35, 55, 105);
+    background-color: white;
+    margin-top: 4%;
+    padding-left: 8px;
+    padding-top: 8px;
+    overflow: hidden;
+    resize: none;
+}

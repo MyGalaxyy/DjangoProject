@@ -1,0 +1,71 @@
+/* report_user css */
+#report-title {
+    margin-left: 11%;
+    padding-top: 6%;
+    color: white;
+}
+
+#report-hr {
+    border: 2px solid rgb(35, 55, 105);
+    margin-top: 8px;
+    width: 74%;
+    margin-left: 9%;
+}
+
+#report-title2 {
+    margin-left: 11%;
+    padding-top: 10%;
+    color: white;
+}
+
+#report-hr2 {
+    border: 2px solid rgb(35, 55, 105);
+    margin-top: 8px;
+    width: 74%;
+    margin-left: 9%;
+}
+
+.report-form {
+    height: 90px;
+    width: 42%;
+    margin-top: 9%;
+    margin-left: -42%;
+    background-color: rgb(35, 55, 105);
+    border-radius: 5px;
+    color: white;
+}
+
+.report-form textarea {
+    width: 82%;
+    height: 40px;
+    border-radius: 5px;
+    border-color: rgb(35, 55, 105);
+    background-color: white;
+    margin-top: 4%;
+    padding-left: 8px;
+    padding-top: 8px;
+    overflow: hidden;
+    resize: none;
+}
+
+.report-tweet-content {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 45%;
+    height: 80px;
+    margin-left: 9%;
+    margin-top: 4%;
+    background-color: rgba(255, 255, 255, 0.888);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 3px 8px 3px rgb(63, 62, 62);
+}
+
+.report-tweet-content p {
+    margin-top: 28px;
+    margin-left: 20px;
+}
+.report-form button{
+    width: 8%;
+    height: 18px;
+}

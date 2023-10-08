@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load static %}
+{% block sayfaBaslik %}
+Anasayfa
+{% endblock sayfaBaslik %}
+
+{% block sayfaIcerik %}
+<div class="container">
+  
+{% for message in messages %}
+<p id="success-message">{{message}}</p>
+{% endfor %}
+
+<h2 id="home-title">Trending Tweets</h2>
+<hr id="home-hr">
+
+
+ <!-- bütün tweetler -->
+  
+  {% for tweet in posts %}
+  <div class="tweet-container">
+    <div class="tweet-content">
+      <div class="tweet-image">
+        <img src="{{tweet.user.handleAvatar}}" alt="{{user.username}}">
+      </div>
+      <p id="tweet-user"> <a href="{% url 'usertweet' tweet.user.id %}">@{{tweet.user}}</a> </p>
+      <p id="tweet-post">{{tweet.post}}</p>
+
+
+     <!-- tweetlerin işlev iconları -->
+      {% if request.user.id == tweet.user.id or request.user.is_superuser or request.user.is_moderator%}
+      <p> <a href="{% url 'delete_tweet' tweet.id %}"> <i class="fa-solid fa-trash-can" style="color: #121212;"></i> </a> </p>
+      <p> <a href="{% url 'update_tweet' tweet.id %}"> <i class="fa-regular fa-pen-to-square"style="color: #121212;"></i> </a> </p>  
+      {% endif %}
+
+
+       
+       {% if request.user.isApproved or request.user.is_superuser or request.user.is_moderator %}
+       <p> <a href="{% url 'report_user'  tweet.id user.id %}"> <i class="fa-regular fa-flag" style="color: #121212;"></i> </a> </p>
+       {% endif %} 
+
+   
+      <!-- model.admin baglantısı olmayan begeni örnegi -->
+      {% if request.user.isApproved %}
+      {% if user in tweet.likes.all %}
+      <p> <a href="{% url 'tweet_like' tweet.id%}"> <i class="fa-solid fa-heart" style="color: #0d0d0d;"></i> </a> </p>
+      {% else %}
+      <p> <a href="{% url 'tweet_like' tweet.id %}"> <i class="fa-regular fa-heart" style="color: #0d0d0d;"></i> </a> </p>
+      {% endif %}
+      {% endif %}
+       
+      <!-- model, admin e bağlı olan begeni ikon işlevi -->
+     <!-- {% if request.user.isApproved %}
+      <form action="{% url 'tweet_like' tweet.id%}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="tweet_id" value="{{tweet.id}}">
+        {% if user not in tweet.likes.all %}
+        <p> <button style="border: none;" type="submit"><i class="fa-regular fa-heart" style="color: #0d0d0d;"></i></button></p>
+        {% else %}
+        <p> <button style="border: none" type="submit"><i class="fa-solid fa-heart" style="color: #0d0d0d;"></i></button></p>
+        {% endif %}
+      </form>
+      {% endif %} 
+       -->
+
+      {% if request.user.id == tweet.user.id or request.user.isApproved or request.user.is_superuser or request.user.is_moderator%}
+      <p> <a href="{% url 'create_comment' tweet.id %}"> <i class="fa-solid fa-reply" style="color: #0f0f10;"></i> </a> </p>
+      {% endif %}
+      <p>{{tweet.count_likes}} Likes</p>
+      {% if request.user.id == tweet.user.id or request.user.isApproved or request.user.is_superuser or request.user.is_moderator%}
+      <p> <a href="{% url 'create_comment' tweet.id%}">{{tweet.comments.count}} Comments</a> </p>
+      {% endif %}
+      <p id="tweet-date">({{tweet.createdAt}})</p>
+
+    </div>
+  </div>
+  {% endfor %}
+
+  <!-- Post(tweet) olusturma alani -->
+  {% if request.user.is_authenticated %}
+  <div class="create-tweet">
+    <form action="{% url 'create_tweet' %}" method="post">
+      {% csrf_token %}
+      <div class="post-container">
+        <div class="post-area">
+          <div class="post-tweet-image">
+            <img src="{{user.handleAvatar}}" alt="{{user.username}}">
+          </div>
+          <p id="post-label">@{{user.username}}:</p>
+          <textarea id="post-content" name="tweet_olustur"></textarea>
+          <button style="border: none;" type="submit"> <i class="fa-regular fa-paper-plane" style="color: #020636;"></i> </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+
+  {% else %}
+  <div class="post-container">
+    <p style="color: white; text-align: center; padding-top: 5%; font-size: 18px;">Tweet Gönderebilmek icin
+       <a style="color: inherit;padding-left: 5px;" href="{% url 'signupPage' %}">Üye Olun!</a> 
+    </p>
+  </div>
+  {% endif %}
+
+</div>
+
+<script>
+  setTimeout()
+</script>
+
+<script src="{% static 'scripts/handleMessages.js' %}"></script>
+{% endblock sayfaIcerik %}
+

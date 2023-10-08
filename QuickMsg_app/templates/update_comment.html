@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sayfaBaslik %}
+User Tweets
+{% endblock sayfaBaslik %}
+
+{% block sayfaIcerik %}
+<div class="container">
+
+    {% for message in messages %}
+    <p id="success-message">{{message}}</p>
+    {% endfor %}
+
+    {% if request.user.id == onetweet.user.id and request.user.is_authenticated or request.user.isApproved or request.user.is_superuser or request.user.is_moderator %}
+  <div class="mytweet-title">
+    <h2>Yorum Düzenle</h2>
+    <hr>
+  </div>
+      
+    <!-- Düzenlenmek istenen yorum -->
+    <div class="updatetweet-container">
+        <div class="updatetweet-content">
+            <p>@{{onecomment.user}}</p>
+            <p id="updatetweet-date">({{onecomment.createdAt}})</p>
+            <p id="updatetweet-post">{{onecomment.message}}</p>
+            <p> <a style="color: black;" href="{% url 'homepage'%}">return homepage<i class="fa-regular fa-hand-point-left" style="color: #0f0f10;"></i></a> </p>
+        </div>
+
+        <!-- Yorumu düzeltme formu -->
+        {% if request.user.isApproved or request.user.id == onetweet.user.id or request.user.is_superuser or request.user.is_moderator %}
+         <div class="update-form">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{commentupdateform}}
+                <button type="submit">Düzenle</button>
+            </form>
+         </div>
+        {% endif %}
+
+    </div>
+   {% endif %}   
+    <script>
+        setTimeout()
+    </script>
+
+ <script src="{% static 'scripts/handleMessages.js' %}"></script>
+
+</div>
+
+
+{% endblock sayfaIcerik %}

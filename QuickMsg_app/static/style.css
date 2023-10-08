@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    height: 1900px;
+    background-color:#292727 ;
+}
+
+/* Nav Css Baslangic */
+.nav-container {
+    display: flex;
+}
+
+.navbar {
+    width: 100%;
+    height: 45px;
+    background-color: rgb(35, 55, 105);
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin-top: 14px;
+}
+
+.navbar li a {
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar li {
+    padding-left: 7%;
+}
+
+.rigth-menu {
+    display: flex;
+    width: 90px;
+    margin-left: 85%;
+    margin-top: -32px;
+}
+
+.rigth-menu li a {
+    letter-spacing: 2px;
+    color: white;
+}
+
+.rigth-menu ul span {
+    cursor: pointer;
+}
+
+.dropdown span a {
+    text-decoration: none;
+    color: white;
+}
+
+.rigth-menu li a:hover {
+    text-decoration: underline;
+}
+
+.material-symbols-outlined {
+    padding-left: 8px;
+    color: white;
+}
+
+.dropdown {
+    display: flex;
+    position: relative;
+    width: 100px;
+    height: 45px;
+    top: -4px;
+    right: -92%;
+}
+
+#button {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    outline: hidden;
+    padding: 12px 7px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    top: -58%;
+    right: 55px;
+}
+
+#button:hover {
+    background-color: black;
+}
+
+.dropdown-options {
+    right: 10px;
+    display: none;
+    position: absolute;
+    overflow: auto;
+    background-color: rgb(35, 55, 105);
+    border-radius: 5px;
+    top: 35%;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown:hover .dropdown-options {
+    display: block;
+}
+
+.dropdown-options a {
+    display: block;
+    color: white;
+    padding-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    margin-left: -15px;
+    width: 176px;
+    height: 60px;
+}
+
+.dropdown-options a:hover {
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    width: 176px;
+    height: 60px;
+    border: solid 2px black;
+    margin-left: -15px;
+    font-size: 16px;
+
+}
+
+#logoutBTN i {
+    padding: 5px;
+    color: white;
+}
+
+/* 403page css baslangic */
+#yetkisiz-notify {
+    font-size: 18px;
+    padding-top: 9%;
+    padding-left: 5%;
+    color: rgba(255, 255, 255, 0.888);
+    letter-spacing: 1px;
+}
+
+#yetkisiz-notify a {
+    color: rgb(52, 84, 165);
+    letter-spacing: 1px;
+}
+
+/* 404page css baslangic */
+#not-found {
+    font-size: 20px;
+    padding-top: 9%;
+    padding-left: 5%;
+    color:rgba(255, 255, 255, 0.888);
+    letter-spacing: 1px;
+}
+
+#not-found a {
+    color: rgb(52, 84, 165);
+    padding-left: 8px;
+    letter-spacing: 1px;
+}
+
+/* success-message css */
+#success-message {
+    width: 50%;
+    height: 35px;
+    margin-left: 25%;
+    padding-top: 10px;
+    text-align: center;
+    background-color: #51a964;
+    color: white;
+}
+/* error-message css */
+#error-message{
+    width: 50%;
+    height: 35px;
+    margin-left: 25%;
+    padding-top: 10px;
+    text-align: center;
+    background-color:#dc3737;
+    color: white;
+}

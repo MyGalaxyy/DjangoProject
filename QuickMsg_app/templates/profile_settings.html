@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block sayfaBaslik %}
+Profil Ayarlari
+{% endblock sayfaBaslik %}
+
+{% block sayfaIcerik %}
+
+<div class="container">
+
+  <!-- user_profile da ki kisisel bilgilerin düzenlendigi(güncellendigi) profil ayarı form alanı -->
+  {% if request.user == user %}
+  <h2 class="psettings-title">Profil Ayarlari</h2>
+  <hr id="psettings-hr">
+  <form class="update-profile-form" action="{% url 'profilesettings' %}" method="post">
+    {% csrf_token %}
+
+    {{updateprofile}}
+
+    <span>(Sifre güncellemesi yapildiginda yeni sifreniz ile tekrar login yapmaniz gerekecektir!)</span>
+    <div class="update-form-Btn">
+      <button type="submit">Güncelle</button>
+    </div>
+
+  </form>
+  {% endif %}
+  
+</div>
+
+{% endblock sayfaIcerik %}

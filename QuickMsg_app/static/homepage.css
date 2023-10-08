@@ -1,0 +1,119 @@
+/* homepage tweets css baslangic */
+.tweet-container {
+    margin-left: 8%;
+    margin-top: 6%;
+    padding-top: 8%;
+    width: 86%;
+    height: 100px;
+}
+
+.tweet-image img {
+    width: 94%;
+    height: 93px;
+    padding-left: 5px;
+    padding-top: 8px;
+    border-radius: 50px;
+}
+
+.tweet-content {
+    display: inline-flex;
+    width: 68%;
+    background-color: rgba(255, 255, 255, 0.888);
+    border: none;
+    height: 110px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 8px 3px rgb(63, 62, 62);
+}
+
+.tweet-content p {
+    margin-top: 45px;
+    padding-left: 15px;
+}
+
+.tweet-content p a {
+    color: black;
+    text-decoration: none;
+}
+
+#tweet-user {
+    margin-left: -2%;
+    margin-top: 3%;
+}
+
+#home-title {
+    margin-left: 28%;
+    padding-top: 85px;
+    color: white;
+}
+
+#home-hr {
+    width: 50%;
+    margin-left: 10%;
+    margin-top: 2px;
+    border: solid 2px;
+    color: rgb(35, 55, 105);
+}
+
+/* Post olustur css baslangic */
+.post-container {
+    position: absolute;
+    width: 49%;
+    left: 10%;
+    top: 26%;
+    height: 112px;
+    background-color: rgb(35, 55, 105);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 4px 2px 4px 1px rgb(63, 62, 62);
+}
+
+.post-tweet-image img {
+    width: 10%;
+    height: 74px;
+    border-radius: 50px;
+    margin-top: 3px;
+}
+
+.post-area {
+    padding-top: 15px;
+    padding-left: 8px;
+}
+
+.post-area #post-label {
+    color: white;
+    padding-left: 10%;
+    padding-bottom: -3%;
+}
+
+.post-area textarea {
+    position: absolute;
+    top: 36%;
+    left: 2%;
+}
+
+#post-label {
+    padding-bottom: 4px;
+    position: absolute;
+    bottom: 61%;
+}
+
+#post-content {
+    width: 70%;
+    height: 50px;
+    border-radius: 10px;
+    border-color: white;
+    margin-left: 17%;
+    padding-left: 10px;
+    padding-top: 8px;
+    overflow: hidden;
+    resize: none;
+}
+
+.post-area button {
+    position: absolute;
+    width: 8%;
+    height: 20px;
+    border-radius: 5px;
+    left: 90%;
+    bottom: 5%;
+}

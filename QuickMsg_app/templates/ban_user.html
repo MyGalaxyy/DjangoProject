@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sayfaBaslik %}
+Ban User
+{% endblock sayfaBaslik %}
+
+{% block sayfaIcerik %}
+<div class="container">
+
+  {% for message in messages %}
+  <p id="success-message">{{message}}</p>
+  {% endfor %}
+
+  <h2 id="report-title">Ban Form Sayfasi</h2>
+  <hr id="report-hr">
+
+    <!-- Ban olusturma formu  -->
+    <div>
+      <form class="banform" action="{% url 'ban_user' user.id %}" method="post">
+        {% csrf_token %}
+
+        {{banform}}
+
+        <button style="width: 8%;" type="submit"> <i class="fa-regular fa-paper-plane" style="color: #020636;"></i> </button>
+      </form>
+    </div>
+ 
+  <script>
+    setTimeout()
+  </script>
+  
+
+  <script src="{% static 'scripts/handleMessages.js' %}"></script>
+
+
+</div>
+
+
+{% endblock sayfaIcerik %}

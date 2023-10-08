@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+{% block sayfaBaslik %}
+Profil
+{% endblock sayfaBaslik %}
+
+
+{% block sayfaIcerik %}
+<div class="container">
+  {% for message in messages %}
+  <p id="success-message">{{message}}</p>
+  {% endfor %}
+
+  <h2 id="profile-title">Kisisel Bilgiler </h2>
+  <span id="deleteSpan"> <a onclick="deleteProfile(event,`{{user.id}}`)" href="#">Hesabi Sil<i style="padding-left: 4px;" class="fa-solid fa-trash"></i></a> </span>
+  <hr id="profile-hr">
+
+  <div class="profile-borders">
+
+   <!-- user_profile, Kisisel bilgilerin gösterildigi alan -->
+    {% if user.handleAvatar %}
+    <div class="userprofile-image">
+      <img src="{{user.handleAvatar}}" alt="{{user.username}}">
+    </div>
+    {% else %}
+    <p>Profile Photo:Yok</p>  
+    {% endif %}
+
+    {% if user.username %}
+    <p><b>Username:</b>{{user.username}}</p>
+    {% else %}
+    <p>Username:Belirtilmedi</p>
+    {% endif %}
+
+    {% if user.first_name %}
+    <p> <b>First Name:</b> {{user.first_name}}</p>
+    {% else %}
+    <p><b>First Name:</b>Belirtilmedi</p>
+    {% endif %}
+
+    {% if user.last_name %}
+    <p> <b>Last Name:</b> {{user.last_name}}</p>
+    {% else %}
+    <p><b>Last Name:</b>Belirtilmedi</p>
+    {% endif %}
+
+    {% if user.birthdate %}
+    <p><b>Birthday:</b>{{user.birthdate}}</p>
+    {% else %}
+    <p><b>Birthday:</b>Belirtilmedi</p>
+    {% endif %}
+
+    {% if user.email %}
+    <p> <b>Email:</b>{{user.email}}</p>
+    {% else %}
+    <p><b>Email:</b>Belirtilmedi</p>
+    {% endif %}
+    <p><b>Password:</b>**********</p>
+
+    {% if user.country %}
+    <p><b>Country:</b>{{user.country}}</p>
+    {% else %}
+    <p><b>Country:</b>Belirtilmedi</p>
+    {% endif %}
+
+    {% if user.city %}
+    <p><b>City:</b>{{user.city}}</p>
+    {% else %}
+    <p><b>City:</b>Belirtilmedi</p>
+    {% endif %}
+
+    {% if user.educational_process %}
+    <p><b>Education:</b>{{user.educational_process}}</p>
+    {% else %}
+    <p><b>Education:</b>Belirtilmedi</p>
+    {% endif %}
+
+    {% if user.aboutme %}
+    <p><b>About:</b>{{user.aboutme}}</p>
+    {% else %}
+    <p><b>About:</b>Belirtilmedi</p>
+    {% endif %}
+
+    {% if request.user.is_superuser %}
+    <p><b>Role:</b>Admin</p>
+    {% endif %}
+
+    {% if request.user.is_moderator %}
+    <p><b>Role:</b>Moderator</p>
+    {% endif %}
+
+    {% if user.isApproved %}
+    <p><b>Approved:</b>Onaylandi</p>
+    {% else %}
+    <p><b>Approved:</b>Beklemede</p>
+    {% endif %}
+
+    {% if user.updatedAt %}
+    <p><b>Updated:</b>{{user.updatedAt}}</p>
+    {% endif %}
+
+     <span id="update-span"> <a href="{% url 'profilesettings' %}">Profili Güncelle</a> </span>
+    
+  </div>
+
+  <script>
+    setTimeout()
+  </script>
+
+  <script>
+    deleteProfile()
+  </script>
+
+  <script src="{% static 'scripts/handleMessages.js' %}"></script>
+  <script src="{% static 'scripts/disableAccounts.js' %}"></script>
+
+{% endblock sayfaIcerik %}

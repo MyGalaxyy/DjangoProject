@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+{% block sayfaBaslik %}
+User Tweets
+{% endblock sayfaBaslik %}
+
+{% block sayfaIcerik %}
+<div class="container">
+
+    {% for message in messages %}
+    <p id="success-message">{{message}}</p>
+    {% endfor %}
+
+
+    {% if request.user.is_authenticated and request.user.isApproved or request.user.is_superuser %}
+    <div class="mytweet-title">
+        <h2 id="comment-title1">Yorum Yap</h2>
+        <hr>
+    </div>
+
+    <!-- Yorum yapılmak istenen tweet -->
+    <div class="createtweet-container">
+        <div class="createtweet-content">
+            <div class="comment-image">
+                <img src="{{post.user.handleAvatar}}" alt="{{post.user.username}}">
+            </div>
+            <p id='createtweet-user'>@{{post.user}}</p>
+            <p id="createtweet-post">{{post.post}}</p>
+            <p id="createtweet-date">({{post.createdAt}})</p>
+            {% if request.user.id == post.user.id or request.user.is_superuser or request.user.is_moderator %}
+            <p> <a href="{% url 'delete_tweet' post.id %}"><i class="fa-solid fa-trash-can"style="color: #121212;"></i> </a> </p>          
+            {% endif %}
+        </div>
+     
+        <!-- Yorum yapma form alani -->
+        {% if request.user.isApproved or request.user.is_superuser or request.user.is_moderator %}
+        <div class="comment-form">
+            <form action="{% url 'create_comment' post.id %}" method="post">
+                {% csrf_token %}
+                {{commentform}}
+                <button type="submit"> <i class="fa-regular fa-paper-plane" style="color: #020636;"></i> </button>
+            </form>
+        </div>
+        {% endif %}
+
+    </div>
+
+    <!-- Yapılan yorumlarin gösterildigi alan -->
+    <h3 id="comment-title">Yorumlar({{post.comments.count}})</h3>
+    <hr id="comment-hr">
+
+    {% for comment in post.comments.all %}
+    <div class="createcomment-content">
+        <div class="comment-image">
+            <img src="{{comment.user.handleAvatar}}" alt="{{user.username}}">
+        </div>
+        <p id='createcomment-user'>@{{comment.user}}</p>
+        <p id="createcomment-post">{{comment.message}}</p>
+        <p id="createcomment-date">({{comment.createdAt}})</p>
+
+        {% if request.user.id == comment.user.id or request.user.is_superuser or request.user.is_moderator %}
+        <p> <a href="{% url 'delete_comment' post.id comment.id%}"><i class="fa-solid fa-trash-can"style="color: #121212;"></i> </a> </p>
+                    
+        <p> <a href="{% url 'update_comment' comment.id %}"><i class="fa-regular fa-pen-to-square" style="color: #121212;"></i> </a> </p>
+        {% endif %}          
+
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+
+</div>
+<script>
+    setTimeout()
+</script>
+
+<script src="{% static 'scripts/handleMessages.js' %}"></script>
+{% endblock sayfaIcerik %}

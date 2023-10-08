@@ -1,0 +1,126 @@
+#logIn-title {
+    padding-top: 7%;
+    margin-left: 17%;
+    color: white;
+}
+
+#login-hr {
+    width: 16%;
+    margin-left: 12%;
+    border: solid 2px;
+    color:white;
+    margin-top: 2px;
+}
+
+#login-borders {
+    border: solid 2px rgb(225, 219, 219);
+    border-radius: 10px;
+    width: 25%;
+    height: 400px;
+    margin-left: 8%;
+    margin-top: 5px;
+    background-color: rgb(25, 42, 84);
+}
+
+.logInput1 input {
+    width: 65%;
+    height: 35px;
+    margin-top: 55px;
+    margin-left: 16%;
+    border: solid 2px rgb(229, 223, 223);
+    border-radius: 10px;
+    padding-left: 5px;
+    outline-color: rgb(35, 55, 105);
+}
+
+.logInput2 input {
+    width: 65%;
+    height: 35px;
+    margin-top: 35px;
+    margin-left: 16%;
+    border: solid 2px rgb(229, 223, 223);
+    border-radius: 10px;
+    padding-left: 5px;
+    outline-color: rgb(35, 55, 105);
+}
+
+.logInput2 p {
+    margin-top: 35px;
+    margin-left: 15%;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.logInput2 #resetpass a {
+    padding-left: 4px;
+}
+
+.logInput2 a {
+    color: rgb(13, 101, 223);
+}
+
+.loginBtn button {
+    width: 40%;
+    height: 42px;
+    margin-left: 27%;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #4CAF50;
+}
+
+/* sign_up page css */
+#register-title {
+    padding-top: 7%;
+    margin-left: 17%;
+    color: white;
+}
+
+#reg-hr {
+    width: 16%;
+    margin-left: 12%;
+    margin-top: 2px;
+    border: solid 2px;
+    color: white;
+}
+
+.regform {
+    border: 2px solid rgb(225, 219, 219);
+    border-radius: 10px;
+    width: 25%;
+    height: 470px;
+    margin-left: 8%;
+    margin-top: 5px;
+    background-color: rgb(25, 42, 84);
+    letter-spacing: 1px;
+}
+
+#kayitYazi a {
+    color: rgb(13, 101, 223);
+}
+
+.regform input {
+    display: block;
+    width: 65%;
+    height: 35px;
+    margin-top: 29px;
+    margin-left: 16%;
+    border: solid 2px rgb(231, 227, 227);
+    border-radius: 10px;
+    padding-left: 5px;
+    outline-color: rgb(35, 55, 105);
+}
+
+.reginBtn button {
+    width: 40%;
+    height: 40px;
+    margin-left: 26%;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #4CAF50;
+}
+
+.regform p {
+    margin-left: 9%;
+    margin-top: 27px;
+    color: white;
+}

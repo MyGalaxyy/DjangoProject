@@ -1,0 +1,121 @@
+/* user_profile kisisel bilgiler css baslangic */
+#profile-title {
+    padding-top: 7%;
+    padding-left: 12%;
+    color: rgb(211, 201, 201);
+}
+
+#profile-hr {
+    width: 72%;
+    margin-left: 10%;
+    margin-top: 5px;
+    border: 2px solid rgb(35, 55, 105);
+}
+
+.profile-borders {
+    width: 68%;
+    margin-left: 12%;
+}
+
+.profile-borders p {
+    padding-left: 8px;
+    font-size: 1.2rem;
+    color: rgb(211, 201, 201);
+    border-bottom: 2px solid rgb(35, 55, 105);
+    padding-top: 1.5%;
+    letter-spacing: 1px;
+}
+.userprofile-image{
+    padding-top: 20px;
+    
+}
+.userprofile-image img{
+   border-radius: 10px;
+   width: 20%;
+   height: 186px; 
+}
+#update-span  {
+    display: flex;
+    width: 12%;
+    height: 43px;
+    margin-left: 88%;
+    margin-top: 15px;
+    padding-left: 5px;
+    padding-top: 6px;
+    border: solid 2px white;
+    border-radius: 8px;
+    background-color: rgb(35, 55, 105);
+}
+#update-span a{
+    color: white;
+    text-decoration: none;
+}
+#deleteSpan{
+margin-left: 74%;
+}
+#deleteSpan a {
+    color: white;
+    text-decoration: none;
+}
+
+/* profile-settings page css */
+.update-profile-form {
+    margin-left: 7%;
+    margin-top: 2%;
+    letter-spacing: 1px;
+    line-height: 32px;
+}
+
+.update-profile-form textarea {
+    display: block;
+    width: 40%;
+    font-size: 14px;
+    resize: none;
+}
+
+.update-profile-form label {
+    display: block;
+    color: rgb(211, 201, 201);
+}
+
+.update-profile-form span {
+    color: rgb(169, 168, 168);
+}
+
+.update-profile-form input {
+    display: block;
+    width: 40%;
+    height: 35px;
+    border: solid 2px rgb(231, 227, 227);
+    padding-left: 5px;
+    outline-color: rgb(35, 55, 105);
+}
+
+.update-form-Btn button {
+    width: 10%;
+    height: 40px;
+    margin-left: 30%;
+    margin-top: 2%;
+    border-radius: 8px;
+    background-color: rgb(35, 55, 105);
+    color: white;
+}
+
+.psettings-title {
+    padding-top: 3%;
+    margin-left: 7%;
+    letter-spacing: 1px;
+    color: rgb(211, 201, 201);
+}
+
+#psettings-hr {
+    width: 100%;
+    margin-right: 50%;
+    margin-top: 2px;
+    border: solid 2px;
+    color: rgb(35, 55, 105);
+}
+
+#id_avatar {
+    color: white;
+}

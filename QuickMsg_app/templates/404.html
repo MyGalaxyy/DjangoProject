@@ -1,0 +1,17 @@
+{% extends 'homepage.html' %}
+
+{% block sayfaBaslik %}
+Sayfa Bulunamadi
+{% endblock sayfaBaslik %}
+
+{% block sayfaIcerik %}
+
+<div class="container">
+  <p id="not-found">Üzgünüz Aradiginiz Sayfa Bulunamadi
+    <a href="{% url 'homepage' %}">Lütfen Anasayfaya geri dönünüz
+      <i class="fa-solid fa-rotate-left" style="color: rgb(52, 84, 165); padding-left:2px;"></i>
+    </a>
+  </p>
+</div>
+
+{% endblock sayfaIcerik %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block sayfaBaslik %}
+Ban User
+{% endblock sayfaBaslik %}
+
+{% block sayfaIcerik %}
+<div class="container">
+
+  {% for message in messages %}
+  <p id="success-message">{{message}}</p>
+  {% endfor %}
+
+  <h2 id="report-title">Ban Form Sayfasi</h2>
+  <hr id="report-hr">
+
+    <!-- Ban kaldırma formu  -->
+    <div>
+    <form class="removebanform" action="{% url 'remove_ban' user.id %}" method="post">
+        {% csrf_token %}
+        {{removebanform}}
+        <button style="width: 8%;" type="submit"><i class="fa-regular fa-paper-plane" style="color: #020636;"></i> </button>
+    </form>
+    </div>
+{% endblock sayfaIcerik %}
